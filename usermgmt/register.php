@@ -36,7 +36,11 @@
             </div>
             <button type="submit" name="submit" class="btn">Register</button>
         </form>
+            <div class="btn-group">
+                <span class="note">Aready have an account? <a href = "login.php" class="text-link">Login Now </a></span> <br><br>
+                <a href = "index.php" class="text-link" title="Back to Home">&larr; Back to Home </a>
+
+    </div>
     </main>
-    <script src="./script.js"></script>
 </body>
 </html>

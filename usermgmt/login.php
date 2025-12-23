@@ -24,7 +24,11 @@
             </div>
             <button type="submit" name="submit" class="btn">Login</button>
         </form>
+         <div class="btn-group">
+                <span class="note">don't have an account? <a href = "register.php" class="text-link">Register Now </a></span> <br><br>
+                <a href = "index.php" class="text-link" title="Back to Home">&larr; Back to Home </a>
+
+    </div>
     </main>
-    <script src="./script.js"></script>
 </body>
 </html>
