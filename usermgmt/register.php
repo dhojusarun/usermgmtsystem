@@ -15,8 +15,12 @@
                 <input type="text" id="uname" name="username">
             </div>
             <div class="field-group">
-                <label for="uname">Username / E-mail</label>
+                <label for="uname">Username</label>
                 <input type="text" id="uname" name="username">
+            </div>
+            <div class="field-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email">
             </div>
             <div class="field-group">
                 <label for="pwd">Password</label>
