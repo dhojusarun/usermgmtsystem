@@ -13,6 +13,9 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     background-color: #f9f9f9;
 }
+.container.large{
+    max-width:900px;
+}
 .page-title{
     border-bottom:1px dashed #ccc;
     text-align:center;
@@ -80,5 +83,29 @@ label,input{
 }
 .field-group{
     margin-bottom: 16px;
+}
+/* List table */
+table{
+    width:100%;
+}
+table .btn{
+background-color: transparent;
+color:#007BFF;
+padding:4px 8px;
+font-size:0.8rem;
+border:1px solid #007BFF;
+border-radius: 4px;
+text-decoration: none;
+text-align: center;
+cursor:pointer;
+transition:0.3s ease;
+}
+table .btn-danger{
+border-color:#dc3545;
+color:#dc3545;
+}
+
+table .btn-danger:hover{
+   background-color:#a71d2a;
 }
 
