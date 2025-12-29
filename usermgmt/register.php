@@ -9,7 +9,7 @@
 <body>
     <main class="container">
         <h1 class="page-title">Register</h1>
-        <form action="#" method="post" name="user_form">
+        <form action="./insert.php" method="post" name="user_form">
             <div class="field-group">
                 <label for="uname">FullName</label>
                 <input type="text" id="uname" name="username">
