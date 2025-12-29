@@ -9,38 +9,53 @@
 <body>
     <main class="container">
         <h1 class="page-title">Register</h1>
-        <form action="./insert.php" method="post" name="user_form">
+
+        <form action="insert.php" method="post" name="user_form">
+            
             <div class="field-group">
-                <label for="uname">FullName</label>
-                <input type="text" id="uname" name="username">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required>
             </div>
+
             <div class="field-group">
-                <label for="uname">Username</label>
-                <input type="text" id="uname" name="username">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
             </div>
+
             <div class="field-group">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" required>
             </div>
+
             <div class="field-group">
-                <label for="pwd">Password</label>
-                <input type="password" id="pwd" name="password">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
             </div>
+
             <div class="field-group">
-                <label for="cpwd">Confirm Password</label>
-                <input type="password" id="cpwd" name="cpassword">
+                <label for="cpassword">Confirm Password</label>
+                <input type="password" id="cpassword" name="cpassword" required>
             </div>
+
             <div class="field-group">
-                <input type="checkbox" id="agree" name="agree">
-                <label for="agree">I agree with the <a href="terms.php" title="Terms & Conditions" >Terms & Conditions</label>
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">
+                    I agree with the 
+                    <a href="terms.php" title="Terms & Conditions">Terms & Conditions</a>
+                </label>
             </div>
+
             <button type="submit" name="submit" class="btn">Register</button>
         </form>
-            <div class="btn-group">
-                <span class="note">Aready have an account? <a href = "login.php" class="text-link">Login Now </a></span> <br><br>
-                <a href = "index.php" class="text-link" title="Back to Home">&larr; Back to Home </a>
 
-    </div>
+        <div class="btn-group">
+            <span class="note">
+                Already have an account?
+                <a href="login.php" class="text-link">Login Now</a>
+            </span>
+            <br><br>
+            <a href="index.php" class="text-link" title="Back to Home">&larr; Back to Home</a>
+        </div>
     </main>
 </body>
 </html>

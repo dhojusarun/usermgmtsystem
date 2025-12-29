@@ -38,4 +38,6 @@ Database Requirements:
             status BOOLEAN NOT NULL
            ):
 
+           ALTER TABLE tbl_users ADD COLUMN password VARCHAR(250) NOT NULL AFTER email;
+
            cart table, product table, customer with foreign_key

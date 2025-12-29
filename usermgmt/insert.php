@@ -10,7 +10,8 @@ if(isset($_POST['submit'])){
 
 if($password === $cpassword && $agree){
     $hashedPwd = sha1($password);
-    $sql = "INSERT INTO tbl_users (fullname, username, email, password) VALUES ('$fullname', '$email', '$hashedPwd')";
+    $sql = "INSERT INTO tbl_users (fullname, username, email, password)
+            VALUES ('$fullname', '$username', '$email', '$hashedPwd')";
     $res = mysqli_query($conn, $sql);
     if($res) $_SESSION['message'] = "Registration successful ! You can now log in.";
     else $_SESSION['error'] = "Registration failed";
