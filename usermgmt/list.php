@@ -1,67 +1,89 @@
+<?php
+// include the database connection file
+include 'connection.php';
+$sql = "SELECT id, fullname, username, email FROM tbl_users";
+$res = mysqli_query($conn, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List | User Management</title>
-    <link rel="stylesheet" href="./main.css">
-
+    <title>List</title>
+     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
     <main class="container large">
-        <h1 class="page-title">User List</h1>
-        <?php if(isset($_SESSION['message'])):?>
-            <div class = "alert success">
-                <?php echo $_SESSION['message'];
-                unset($_SESSION['message']);?>
-                </div>
-                <?php elseif(isset($_SESSION['error'])):?>
-                    <div class= "alert error">
-                        <?php echo $_SESSION['error'];
-                        unset($_SESSION['error']);?>
-                        </div>
-                        <?php endif;?>
-        <table border = "1" cellpadding="10" cellspacing="0">
+        <h1 class="page-title">List Users</H1>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <!-- table header -->
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Full Name</th>
+                    <th>Full name</th>
                     <th>Username</th>
-                    <th>E-mail</th>
-                    <th>Actions</th>
+                    <th>Email</th>
+                    <th>Action</th>
                 </tr>
             </thead>
+            <!-- table body -->
             <tbody>
-                <tr>
+                
+               <!-- <tr>
                     <td>1</td>
                     <td>John Doe</td>
                     <td>johndoe</td>
-                    <td>johndoe@example.com</td>
-                      <td>
-                        <a href="edit.php?id=1" title="Edit" class="btn"><img width="20px" height="auto" src="./images/edit.png" alt="edit"></a>
-                        <a href="delete.php?id=1" title="Delete" class="btn btn-danger"><img width="20px" height="auto" src="./images/delete.png" alt="delete"></a>
-                    </td>
+                    <td>john.doe@example.com</td>
+                    <td>   <a href="edit.php?id=1" title="Edit" class="btn"><img width="15" height="auto" src="edit.png" alt="Edit"></a>
+
+                        <a href="delete.php?id=1" title="Delete" class="btn btn-danger"><img width="15" height="auto" src="delete.png" alt="delete"></a></td>
+                    </tr>
+                <tr>
+                    <td>2</td> 
+                    <td>Jane Smith</td>
+                    <td>janesmith</td>
+                    <td>jane.@gmail.com</td>
+                    <td><a href="edit.php?id=2" title="Edit" class="btn"><img width="15" height="auto" src="edit.png" alt="Edit"></a>
+
+                        <a href="delete.php?id=2" title="Delete" class="btn btn-danger"><img width="15" height="auto" src="delete.png" alt="delete"></a></td>
                 </tr>
                 <tr>
-                    <td>2</td>
-                    <td>Mark William</td>
-                    <td>markwillaim</td>
-                    <td>william@example.com</td>
-                    <td>
-                        <a href="edit.php?id=1" title="Edit" class="btn"><img width="20px" height="auto" src="./images/edit.png" alt="edit"></a>
-                        <a href="delete.php?id=1" title="Delete" class="btn btn-danger"><img width="20px" height="auto" src="./images/delete.png" alt="delete"></a>
-                    </td>
+                    <td>3</td> 
+                    <td>Jane Smith</td>
+                    <td>janesmith</td>
+                    <td>jane...@gmail.com</td>
+                    <td><a href="edit.php?id=2" title="Edit" class="btn"><img width="15" height="auto" src="edit.png" alt="Edit"></a>
+
+                        <a href="delete.php?id=2" title="Delete" class="btn btn-danger"><img width="15" height="auto" src="delete.png" alt="delete"></a></td>
                 </tr>
+            
             </tbody>
-        </table>
-         <div class="btn-group">
-            <hr>
-            <a href="index.php" class="text-link" title="Back to Home">&larr;Back To Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href = "register.php" class="text-link">Add User</a> 
+            <tbody>-->
+                <?php while ($row = mysqli_fetch_assoc($res)): ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['fullname']; ?></td> 
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td>
+                        <a href="edit.php?id=<?php echo $row['id']; ?>" title="Edit" class="btn"><img width="15" height="auto" src="edit.png" alt="Edit"></a>
+
+                        <a href="delete.php?id=<?php echo $row['id']; ?>" title="Delete" class="btn btn-danger"><img width="15" height="auto" src="delete.png" alt="delete"></a>
+                        </td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
+</table>
+
+ <div class="btn_group">
+    <a href ="index.php" class="Text link">&larr; Back to Home</a><br>
+    <a href ="register.php" class="Text link">Add User</a>
+</div>
+
     </main>
 </body>
 </html>
-
 
 <!-- URL: https://www.google.com:80/contact?id=10&status=1
 http:protocol
@@ -70,7 +92,7 @@ www.google.com: domain name (host)
 www:sub-domain
 :80 : port number
 contact: slug
-?___: Query String Parameters
+?_: Query String Parameters
 id = 10
 status = 1 
 -->
