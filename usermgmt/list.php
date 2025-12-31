@@ -11,6 +11,16 @@
     <main class="container large">
         <h1 class="page-title">User List</h1>
         <?php if(isset($_SESSION['message'])):?>
+            <div class = "alert success">
+                <?php echo $_SESSION['message'];
+                unset($_SESSION['message']);?>
+                </div>
+                <?php elseif(isset($_SESSION['error'])):?>
+                    <div class= "alert error">
+                        <?php echo $_SESSION['error'];
+                        unset($_SESSION['error']);?>
+                        </div>
+                        <?php endif;?>
         <table border = "1" cellpadding="10" cellspacing="0">
             <thead>
                 <tr>
