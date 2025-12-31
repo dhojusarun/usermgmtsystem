@@ -16,6 +16,20 @@ $res = mysqli_query($conn, $sql);
 <body>
     <main class="container large">
         <h1 class="page-title">List Users</H1>
+        <?php if (isset($_SESSION['message'])): ?>
+            <div class="alert success">
+                <?php 
+                    echo $_SESSION['message'];// display success message 
+                    unset($_SESSION['message']); // remove message after displaying ?>
+                    <?php elseif (isset($_SESSION['error'])): ?>
+            <div class="alert error">
+                <?php 
+                    echo $_SESSION['error']; // display error message
+                    unset($_SESSION['error']);// remove message after displaying?>
+                
+
+            </div>
+        <?php endif; ?>
         <table border="1" cellpadding="5" cellspacing="0">
             <!-- table header -->
             <thead>
@@ -67,9 +81,9 @@ $res = mysqli_query($conn, $sql);
                     <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td>
-                        <a href="edit.php?id=<?php echo $row['id']; ?>" title="Edit" class="btn"><img width="15" height="auto" src="edit.png" alt="Edit"></a>
+                        <a href="edit.php?id=<?php echo $row['id']; ?>" title="Edit" class="btn"><img width="15" height="auto" src="./images/edit.png" alt="Edit"></a>
 
-                        <a href="delete.php?id=<?php echo $row['id']; ?>" title="Delete" class="btn btn-danger"><img width="15" height="auto" src="delete.png" alt="delete"></a>
+                        <a href="delete.php?id=<?php echo $row['id']; ?>" title="Delete" class="btn btn-danger"><img width="15" height="auto" src="./images/delete.png" alt="delete"></a>
                         </td>
                 </tr>
                 <?php endwhile; ?>
