@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
     $photo_size=$photo['size'];
     $photo_name=$photo['name'];
     $photo_tmp=$photo['tmp_name'];
-    move_uploaded_file($photo_tmp, "./uploads/".$photo_name);
+    move_uploaded_file($photo_tmp, "./images/".$photo_name);
 
     $sql = "UPDATE tbl_users SET fullname='$fullname', address = '$address', photo = 
     '$photo_name' where id=$id";

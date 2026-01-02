@@ -1,7 +1,8 @@
 <?php
 // include the database connection file
+session_start();
 include 'connection.php';
-$sql = "SELECT id, fullname, username, email FROM tbl_users";
+$sql = "SELECT id, fullname, username, email, address, photo FROM tbl_users"; 
 $res = mysqli_query($conn, $sql);
 ?>
 
@@ -36,8 +37,9 @@ $res = mysqli_query($conn, $sql);
                 <tr>
                     <th>ID</th>
                     <th>Full name</th>
-                    <th>Username</th>
-                    <th>Email</th>
+                    <th>Email</th> 
+                    <th>address</th> 
+                    <th>Photo</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -78,8 +80,10 @@ $res = mysqli_query($conn, $sql);
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['fullname']; ?></td> 
-                    <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['address']; ?></td>
+                    <td><img src="./images/<?php echo $row['photo']; ?>"width="80" alt="photo"></td>
+
                     <td>
                         <a href="edit.php?id=<?php echo $row['id']; ?>" title="Edit" class="btn"><img width="15" height="auto" src="./images/edit.png" alt="Edit"></a>
 
