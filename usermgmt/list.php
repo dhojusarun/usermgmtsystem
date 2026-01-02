@@ -38,6 +38,7 @@ $res = mysqli_query($conn, $sql);
                     <th>ID</th>
                     <th>Full name</th>
                     <th>Email</th> 
+                    <th>Username</th> 
                     <th>address</th> 
                     <th>Photo</th>
                     <th>Action</th>
@@ -81,6 +82,7 @@ $res = mysqli_query($conn, $sql);
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['fullname']; ?></td> 
                     <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['address']; ?></td>
                     <td><img src="./images/<?php echo $row['photo']; ?>"width="80" alt="photo"></td>
 
